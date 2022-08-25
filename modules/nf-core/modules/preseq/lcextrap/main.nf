@@ -1,7 +1,7 @@
 process PRESEQ_LCEXTRAP {
     tag "$meta.id"
     label 'process_medium'
-    label 'error_ignore'
+    label 'error_retry'
 
     conda (params.enable_conda ? "bioconda::preseq=3.1.2" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
